@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body,
+.container {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 100vh;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@-webkit-keyframes rotate {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes rotate {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+.music_icon {
+    z-index: 9999;
+    position: absolute;
+    right: 1.0rem;
+    top: 1.0rem;
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
+.music_icon.active {
+    -webkit-animation: rotate 5s infinite linear;
+    animation: rotate 5s infinite linear;
+}
+
+/* 游戏页面主要信息 */
+.game_front_page {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.game_start_show {
+    width: 13.75rem;
+    height: 20rem;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.game_front_page button {
+    color: #fff;
+    padding: 1rem;
+    background: gold;
+}
+
+.has_game_count,
+.has_chou_count,
+.start_bottom_tips {
+    color: #814233;
+    font-size: 0.75rem;
+	font-weight: normal;
+	margin-top: 0.25rem;
+    text-align: center;
+}
+
+.has_game_count strong,
+.has_chou_count strong,
+.start_bottom_tips strong {
+    color: #ffdc2e;
+    font-size: 0.8rem;
+}
+
+.tip_user_info {
+    display: flex;
+    flex-direction: column;
+    margin-top: -1.2rem;
+}
+
+.tip_user_header {
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid #ffe9a9;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.tip_user_name {
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    color: #7a483b;
+    text-align: center;
+}
+
+.b_title_start {
+    width: 11.3rem;
+    margin: .2rem auto 0;
+}
+
+.tip_rule {
+    width: 10.5rem;
+    margin: .5rem auto;
+}
+
+.tip_box_btn {
+    width: 9rem;
+    margin: 0 auto;
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#btn_start_game {
+    width: 9rem;
+    height: 2.25rem;
+    margin-bottom: 0.5rem;
+}
+
+#btn_share,
+#to_chou {
+    width: 4.25rem;
+    height: 1.75rem;
+}
+
+/* common 弹窗 */
+.filter {
+    -webkit-filter: grayscale(100%);
+    /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+
+.t_game_over {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
+.t_over_show {
+    width: 13.75rem;
+    height: 18.575rem;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.t_over_show[type='win'] {
+    height: 14rem;
+}
+
+.t_over_show[type='fail'] {
+    height: 15rem;
+}
+
+.t_over_show[type='invite'] {
+    height: 13.2rem;
+}
+
+.t_game_user_info {
+    margin-top: -1rem;
+    width: 11.85rem;
+    height: 5.775rem;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: .725rem;
+    padding-left: 4.5rem;
+    margin: -3.2rem auto 0;
+}
+
+.t_game_user_header {
+    z-index: 9;
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 3.3rem;
+    height: 3.3rem;
+}
+
+.t_game_user_name {
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    color: #7a483b;
+    text-align: center;
+}
+
+.t_choose {
+    width: 11.3rem;
+    margin: .2rem auto 0;
+}
+
+.t_s_btn {
+    width: 4.25rem;
+    height: 1.75rem;
+}
+
+.t_btn {
+    margin: 0 auto;
+    width: 9rem;
+}
+
+.btn_s_choose {
+    margin: .5rem auto;
+    width: 9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.t_content {
+    margin: 1.25rem auto;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #7a483b;
+    line-height: 2;
+}
+
+.t_fen {
+    font-size: 0.9rem;
+    color: #ffdc2e;
+}
+
+.t_game_failure p,
+.t_game_invite p {
+    text-align: center;
+    color: #7a483b;
+    line-height: 1.5;
+    font-size: 0.8rem;
+}
+
+.t_game_failure p span,
+.t_game_invite p span {
+    color: #ffdc2e;
+    font-weight: bold;
+}
+
+.t_content1,
+.t_content3 {
+    margin: 1.05rem auto 0.6rem;
+}
+
+.t_game_invite .t_content2 {
+    margin-bottom: 0.6rem;
+}
+
+.game-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.avatar-wrap {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid #003215;
+    border-radius: 3rem;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.avatar-wrap .avatar {
+    width: 100%;
+}
+
+.hp_wrap {
+    position: absolute;
+    left: 0.675rem;
+    top: 3.5rem;
+}
+
+.hp_wrap .hp {
+    display: inline-block;
+    width: 1.375rem;
+}
+
+#score,
+#pk_score {
+    position: absolute;
+    line-height: 1.3rem;
+    width: 3.475rem;
+
+    /* border-radius: 1.175rem; */
+    font-size: .8rem;
+    text-align: center;
+    color: #fff;
+    /* border: 0.1rem solid #fff; */
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /* font-weight: bold; */
+
+}
+
+.game-info .avatar-wrap {
+    left: 0.6rem;
+    top: 0.65rem;
+}
+
+.game-info1 .avatar-wrap {
+    right: 0.6rem;
+    top: 4.65rem;
+}
+
+#score {
+    left: 2.3rem;
+    top: 1.2rem;
+    border: 2px solid #003215;
+    background: #003215;
+    color: #fed428;
+    border-radius: 1rem;
+}
+
+#pk_score {
+    right: 2.3rem;
+    top: 5.2rem;
+    background: #ed4059;
+}
+
+.time-wrap {
+    position: absolute;
+    left: 8.95rem;
+    top: 1.225rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 1rem;
+    color: #fff;
+    align-items: center;
+}
+
+.downTime-wrap {
+    margin-left: 0.2rem;
+}
+
+.clock {
+    width: 1.5rem;
+    height: 1.6rem;
+}

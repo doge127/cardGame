@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<script src="https://mat1.gtimg.com/www/asset/lib/jquery/jquery/jquery-1.11.1.min.js?__v=0"></script>
+	<!-- <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
+	<!-- 外部公共资源 -->
+	<!-- swiper weui  -->
+	<!-- 系统资源 -->
+	<!-- <script src="/a_res_app/js/app.all.js.TXT?{$V}"></script>
+	<script src="{$WX_CONFIG_SRC}"></script>
+	<link rel="stylesheet" href="/a_res_common/_other/css/weui.alert.css?{$V}" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/EaselJS/1.0.2/easeljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PreloadJS/1.0.1/preloadjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tweenjs/1.0.2/tweenjs.min.js"></script> -->
+	<!--
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/SoundJS/1.0.2/soundjs.min.js"></script>
+	-->
+	<!-- 应用资源 -->
+	<script src="a_config.js"></script>
+	<!-- <script src="a__item_file__b_index_js?{$V}"></script> -->
+	<link rel="stylesheet" href="b_index_css.css" />
+	<link rel="stylesheet" href="b_index_10_css.css" />
+	<script src="b_index_10_js.js"></script>
+	<!-- <script src="a__item_file__a_diy_js?{$V}"></script> -->
+	<!-- 统计代码 -->
+	{$code_bottom}
+</head>
+
+<body>
+	<div class="container">
+		<audio id="bgm" loop></audio>
+		<div class="music_icon"></div>
+		<div class="page-game page">
+			<!-- 分数栏 -->
+			<div class="game-info">
+				<!-- 头像 -->
+				<div class="avatar-wrap" style="display:none;">
+					<img class="avatar user1">
+				</div>
+				<div id="score">0</div>
+				<div class="time-wrap">
+					<img src="img/b_clock.png" class=" clock" alt="">
+					<div class="downTime-wrap"><span id="second">0</span>s</div>
+				</div>
+			</div>
+			<!-- 游戏前 -->
+			<div class="game_front_page flex" style="display:none;">
+				<div class="game_start_show">
+					<div class="tip_user_info">
+						<img class=" tip_user_header">
+						<span class="tip_user_name"></span>
+					</div>
+					<img src="img/b_title_start.png" class=" b_title_start" alt="">
+					<img src="img/b_tips_mask.gif" class=" tip_rule" alt="">
+					<!-- -->
+					<div class="has_game_count">游戏剩余次数：<strong></strong> 次</div>
+					<div class="has_chou_count">抽奖次数：<strong></strong> 次</div>
+					<div class="start_bottom_tips">每轮成绩达到<strong></strong>分即可抽奖赢豪礼！</div>
+					<!-- -->
+					<div class="tip_box_btn">
+						<img src="img/b_btn_game.png" id="btn_start_game" class=""
+							alt="">
+						<img src="img/b_btn_chou.png" id="to_chou" class="" alt="">
+						<img src="img/b_btn_friend.png" id="btn_share" class="" alt="">
+					</div>
+				</div>
+			</div>
+			<!-- 游戏结束 -->
+			<div class="t_game_over" style="display: none;">
+				<div class="t_over_show">
+					<div class="t_game_user_info">
+						<img src="" class=" t_game_user_header" alt="">
+						<!-- <p class="t_game_user_name"></p> -->
+					</div>
+					<div class="t_game_success" style="display: none;">
+						<p class="t_content">您的成绩为：<strong class="t_fen"></strong>分
+							<br><span class="best_good"></span>
+						</p>
+						<p></p>
+						<!-- 按钮 -->
+						<img src="img/b_btn_game_finish.png"
+							class=" t_btn b_btn_game_finish" alt="">
+						<div class="btn_s_choose">
+							<img src="img/b_btn_again.png"
+								class=" t_s_btn b_btn_continue" alt="">
+							<img src="img/b_btn_friend.png" class=" t_s_btn b_btn_share"
+								alt="">
+						</div>
+					</div>
+					<div class="t_game_failure" style="display: none;">
+						<p class="t_content1">您的成绩为：<span class="t_fen"></span>分</p>
+						<p class="t_content2">成绩必须达到<span class="achieve"></span>分才能抽奖</p>
+						<p class="t_content3">今天剩余<span></span>次机会</p>
+						<img src="img/b_btn_continue.png" class=" t_btn b_btn_continue"
+							alt="">
+						<div class="btn_s_choose">
+							<img src="img/b_btn_chou.png"
+								class=" t_s_btn b_btn_game_finish" alt="">
+							<img src="img/b_btn_friend.png" class=" t_s_btn b_btn_share"
+								alt="">
+						</div>
+					</div>
+					<div class="t_game_invite" style="display: none;">
+						<p class="t_content1">您的成绩为：<span class="t_fen"></span>分</p>
+						<p class="t_content2">成绩必须达到<span
+								class="achieve"></span>分才能拆礼盒<br>与小伙伴一起玩<br>可以<span>继续游戏</span>哦~</p>
+						<img src="img/b_btn_share.png" class=" t_btn b_btn_share"
+							alt="">
+					</div>
+				</div>
+			</div>
+			<!-- -->
+		</div>
+        
+
+
+        <!-- <audio src="https://res.wx.qq.com/voice/getvoice?mediaid=MzI1Njc5NzMyOF8xMDAwMDI0NjE=" autoplay id="audio"></audio> -->
+        <div class="game_page">
+            <!-- 顶部相关 -->
+            <!-- <div class="top_info">
+                <div class="gameTime">
+                    时间: <span>30</span>
+                </div>
+                <div class="mark">
+                    分数: <span>0</span>
+                </div>
+                <img src="img/music_rotate.png" alt="" class="music m_active" data-status="open">
+            </div> -->
+            
+            <!-- 花牌 -->
+            <div class="card_area"></div>
+
+            <!-- 加分提示(一小区域,点击无效) -->
+            <div class="addMark middle" style="display:none;">
+                +3s
+            </div>
+
+            <!-- 減分提示(一小区域,点击无效) -->
+            <div class="deviceMark middle" style="display:none;">
+                -2s
+            </div>
+        </div>
+        
+        <!-- 引导页 -->
+        <div class="guide_area" style="display:none;">
+            <img src="img/guide_hand.png" alt="" class="guide_hand">
+            <img src="img/btn_close.png" alt="" class="btn_close">
+        </div>
+
+        <div class="start_time_area" style="display:none;">
+            <div class="start_time middle">
+                5
+            </div>
+        </div>
+
+        <div id="page-ft" style="height: 100vh;">
+            <div class="load-wrap">
+                <div class="load-box">
+                    <div class="cssload-container">
+                        <div class="cssload-whirlpool"></div>
+                    </div>
+                    <p class="load-num">即将进入...100%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="act_end_area" style="display:none">
+            <div class="end_tips">
+                活动已经结束啦
+            </div>
+        </div>
+	</div>
+
+</body>
+
+</html>
